@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B Tools</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/assets/css/btools.css">
+</head>
+<body>
+
+<div id="desktop">
+  <div id="welcome">
+    <h1>⚡ B TOOLS</h1>
+    <p>PRIVATE UTILITY ENVIRONMENT</p>
+    <div class="hint"><span class="kbd">Ctrl</span> + <span class="kbd">K</span> to search tools</div>
+  </div>
+</div>
+
+<div id="taskbar">
+  <span class="task-logo">⚡ B Tools</span>
+  <div class="divider"></div>
+  <div id="taskbarTools" style="display:flex;gap:8px;overflow-x:auto"></div>
+  <button class="task-add" id="launcherBtn">⌘K Search</button>
+  <a class="task-btn hide-small" href="/downloads/" target="_blank" rel="noopener" style="text-decoration:none">⬇ Extension</a>
+  <button class="task-logout" id="logoutBtn">Logout</button>
+</div>
+
+<div class="palette-overlay" id="paletteOverlay">
+  <div class="palette">
+    <input id="paletteInput" placeholder="Search B Tools…" autocomplete="off">
+    <div class="results" id="paletteResults"></div>
+  </div>
+</div>
+
+<script type="module" src="/assets/js/btools/main.js"></script>
+</body>
+</html>

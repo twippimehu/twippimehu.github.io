@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>benkku.me</title>
+<meta name="description" content="Photography and projects by Benkku.">
+<meta property="og:title" content="benkku.me">
+<meta property="og:description" content="Photography and projects by Benkku.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>·</text></svg>">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+
+<header class="masthead">
+  <a class="wordmark" href="/">benkku.me</a>
+  <nav class="nav">
+    <a href="/photography/">Photography</a>
+    <a href="/about/">About</a>
+    <a class="mystery" href="/.../" aria-label="...">. . .</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-media">
+    <img src="/photos/example-001.jpg" alt="" onerror="this.closest('.hero-media').style.background='linear-gradient(160deg,#1a1815,#0d0c0b)'">
+  </div>
+  <div class="hero-content">
+    <h1>BENKKU.ME</h1>
+    <p class="tagline">Photography <span>/</span> Projects <span>/</span> Tools</p>
+  </div>
+</section>
+
+<section class="section" id="featured">
+  <div class="section-header">
+    <h2>Featured</h2>
+    <a class="view-all" href="/photography/">View photography →</a>
+  </div>
+  <div class="featured-grid" id="featuredGrid"></div>
+</section>
+
+<div class="mystery-strip">
+  <a href="/.../" aria-label="...">. . .</a>
+</div>
+
+<footer>
+  <span>© <span id="year"></span> benkku.me</span>
+  <span>Helsinki</span>
+</footer>
+
+<script type="module" src="/assets/js/site/home.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Windows can't have a folder literally named "..." (dots-only names get
+# silently mangled by Explorer/most zip tools), so the real files live in
+# /private/. These are REWRITES (status 200), not redirects — the browser
+# URL bar still shows the literal "/..." path the whole app was designed
+# around. Order matters: most specific first.
+
+/.../tools/*      /private/tools/index.html   200
+/.../tools        /private/tools/index.html   200
+/...              /private/index.html         200

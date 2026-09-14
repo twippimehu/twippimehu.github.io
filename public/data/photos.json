@@ -1,0 +1,41 @@
+[
+  {
+    "id": "example-001",
+    "src": "/photos/example-001.jpg",
+    "thumbnail": "/photos/thumbs/example-001.jpg",
+    "title": "Untitled",
+    "description": "",
+    "category": "Nature",
+    "featured": true,
+    "date": "",
+    "location": "",
+    "width": 1600,
+    "height": 2000
+  },
+  {
+    "id": "example-002",
+    "src": "/photos/example-002.jpg",
+    "thumbnail": "/photos/thumbs/example-002.jpg",
+    "title": "Untitled",
+    "description": "",
+    "category": "Urban",
+    "featured": true,
+    "date": "",
+    "location": "",
+    "width": 2000,
+    "height": 1333
+  },
+  {
+    "id": "example-003",
+    "src": "/photos/example-003.jpg",
+    "thumbnail": "/photos/thumbs/example-003.jpg",
+    "title": "Untitled",
+    "description": "",
+    "category": "Portrait",
+    "featured": false,
+    "date": "",
+    "location": "",
+    "width": 1333,
+    "height": 2000
+  }
+]

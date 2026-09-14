@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "B Tools",
+  "version": "1.0.0",
+  "description": "Companion extension for B Tools — real page automation (Auto-Fill, Auto-Type, Element Finder) without Tampermonkey.",
+  "permissions": ["activeTab", "scripting", "storage", "commands", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://benkku.me/*", "http://localhost/*", "http://127.0.0.1/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "B Tools"
+  },
+  "commands": {
+    "autofill-next": {
+      "suggested_key": { "default": "Alt+Q" },
+      "description": "Fill the next Auto-Fill answer into the focused field"
+    }
+  }
+}

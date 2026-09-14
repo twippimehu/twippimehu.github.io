@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — benkku.me</title>
+<meta name="description" content="About Benkku.">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+
+<header class="masthead">
+  <a class="wordmark" href="/">benkku.me</a>
+  <nav class="nav">
+    <a href="/photography/">Photography</a>
+    <a href="/about/">About</a>
+    <a class="mystery" href="/.../" aria-label="...">. . .</a>
+  </nav>
+</header>
+
+<section class="section" style="padding-top:64px">
+  <div class="about-grid">
+    <div class="about-portrait">
+      [ Portrait placeholder — replace /about/portrait.jpg ]
+    </div>
+    <div class="about-copy">
+      <h1 style="font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:500;margin-bottom:28px">About</h1>
+      <p>[ Placeholder — write a short bio here. Where you're based, what draws you to photography, what you shoot. Nothing here is invented; fill it in yourself. ]</p>
+      <p>[ Placeholder — a paragraph about your projects or the kind of work you do outside photography, if you want that here. ]</p>
+
+      <div class="about-links">
+        <a href="mailto:you@example.com"><span>Email</span><span>you@example.com</span></a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener"><span>Instagram</span><span>@handle</span></a>
+        <a href="https://github.com/" target="_blank" rel="noopener"><span>GitHub</span><span>@handle</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© <span id="year"></span> benkku.me</span>
+  <span>Helsinki</span>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>

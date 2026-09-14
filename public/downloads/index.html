@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B Tools — Downloads</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="wordmark" href="/">benkku.me</a>
+  <nav class="nav">
+    <a href="/photography/">Photography</a>
+    <a href="/about/">About</a>
+    <a class="mystery" href="/.../" aria-label="...">. . .</a>
+  </nav>
+</header>
+
+<section class="section" style="padding-top:56px;max-width:720px">
+  <h1 style="font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:500;margin-bottom:20px">B Tools</h1>
+  <p style="color:var(--paper-dim);font-size:16px;margin-bottom:32px">Your private browser utility toolbox. The extension below is a public client package — it performs on-page automation, but holds no credentials and cannot open the authenticated B Tools app on its own.</p>
+
+  <div style="border:1px solid var(--line);border-radius:8px;padding:24px;margin-bottom:28px">
+    <h2 style="font-family:var(--serif);font-size:20px;margin-bottom:10px">B Tools Extension</h2>
+    <p style="color:var(--paper-dim);font-size:14px;margin-bottom:16px">Manifest V3, works in Chrome/Chromium. Replaces the old Tampermonkey-based Auto-Type / Auto-Fill scripts with real extension APIs.</p>
+    <a href="/downloads/b-tools-extension.zip" style="display:inline-block;background:var(--amber);color:var(--ink);padding:12px 22px;border-radius:4px;font-size:13px;font-weight:600">Download extension (.zip)</a>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:17px;margin-bottom:10px">What's public vs. private here</h3>
+  <ul style="color:var(--paper-dim);font-size:14px;line-height:1.9;padding-left:20px">
+    <li><strong style="color:var(--paper)">Public client package</strong> — this extension. Anyone can download and install it. It contains no secrets and cannot authenticate you.</li>
+    <li><strong style="color:var(--paper)">Authenticated B Tools service</strong> — the actual tool suite at <code>/.../tools/</code>, behind server-verified login. The extension is a companion to it, not a replacement for it.</li>
+    <li><strong style="color:var(--paper)">Install</strong> — unzip, then in Chrome go to <code>chrome://extensions</code>, enable Developer mode, and "Load unpacked" the folder.</li>
+  </ul>
+</section>
+
+<footer>
+  <span>© <span id="year"></span> benkku.me</span>
+  <span>Helsinki</span>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>
