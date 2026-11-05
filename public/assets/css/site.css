@@ -353,13 +353,18 @@ main{flex:1 0 auto}
   font-weight:400;line-height:1.45;letter-spacing:0;color:var(--fg-2);
 }
 .about-block--en .about-sub{font-size:var(--fs-small);color:var(--fg-3)}
-.about-links{margin-top:36px;display:flex;flex-direction:column;gap:10px}
+.about-links{display:flex;flex-direction:column}
 .about-links a{
-  display:flex;justify-content:space-between;padding:14px 0;
-  border-top:1px solid var(--line);font-size:14px;color:var(--paper-dim);
+  display:flex;justify-content:space-between;align-items:baseline;gap:4px var(--s5);
+  flex-wrap:wrap;padding:14px 0;
+  border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:var(--fs-small);letter-spacing:0.02em;
+  color:var(--fg-2);
   transition:color .2s;
 }
-.about-links a:hover{color:var(--paper)}
+.about-links a:hover, .about-links a:focus-visible{color:var(--fg)}
+.about-links a:hover .about-links-value, .about-links a:focus-visible .about-links-value{color:var(--accent)}
+.about-links-value{color:var(--fg-3);overflow-wrap:anywhere}
 
 /* ---- private-area teaser (subtle, homepage) ---- */
 .mystery-strip{
