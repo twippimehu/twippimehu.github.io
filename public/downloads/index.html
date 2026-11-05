@@ -5,17 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>B Tools — Downloads</title>
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d0c0b">
+<link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+
 <header class="masthead">
   <a class="wordmark" href="/">benkku.me</a>
-  <nav class="nav">
+  <nav class="nav" aria-label="Main">
     <a href="/photography/">Photography</a>
     <a href="/about/">About</a>
-    <a class="mystery" href="/.../" aria-label="...">. . .</a>
+    <a class="mystery" href="/.../" aria-label="Private area">. . .</a>
   </nav>
 </header>
+
+<main id="main">
 
 <section class="section" style="padding-top:56px;max-width:720px">
   <h1 style="font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:500;margin-bottom:20px">B Tools</h1>
@@ -35,9 +42,14 @@
   </ul>
 </section>
 
+</main>
+
 <footer>
   <span>© <span id="year"></span> benkku.me</span>
-  <span>Helsinki</span>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/photography/">Photography</a>
+    <a href="/about/">About</a>
+  </nav>
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>

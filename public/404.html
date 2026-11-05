@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — benkku.me</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0d0c0b">
+<link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <a class="wordmark" href="/">benkku.me</a>
+  <nav class="nav" aria-label="Main">
+    <a href="/photography/">Photography</a>
+    <a href="/about/">About</a>
+    <a class="mystery" href="/.../" aria-label="Private area">. . .</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="notfound">
+  <p class="notice">404</p>
+  <h1>Nothing here.</h1>
+  <a class="back" href="/">Back to the beginning</a>
+</section>
+
+</main>
+
+<footer>
+  <span>© <span id="year"></span> benkku.me</span>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/photography/">Photography</a>
+    <a href="/about/">About</a>
+  </nav>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>

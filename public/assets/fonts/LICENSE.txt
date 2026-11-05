@@ -1,0 +1,18 @@
+Self-hosted webfonts
+====================
+
+All three families are licensed under the SIL Open Font License, Version 1.1,
+which permits bundling and self-hosting.
+
+  fraunces.woff2          Fraunces           © Undercase Type (Phaedra Charles, Flavia Zimbardi)
+  instrument-sans.woff2   Instrument Sans    © Instrument
+  jetbrains-mono.woff2    JetBrains Mono     © JetBrains s.r.o.
+
+Files are the latin subsets served by Google Fonts, converted to woff2 variable
+fonts where the family provides one:
+
+  Fraunces          variable — optical size 9..144, weight 400..600
+  Instrument Sans   variable — weight 400..600
+  JetBrains Mono    static   — weight 400
+
+Full licence text: https://openfontlicense.org

@@ -53,8 +53,25 @@ function isProtectedPath(pathname) {
   return pathname === '/.../tools' || pathname.startsWith('/.../tools/');
 }
 
-export default {
-  async fetch(request, env) {
+// Security headers applied to every response, including the API and
+// redirects. Purely additive — no auth logic lives here.
+const SECURITY_HEADERS = {
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'X-Frame-Options': 'DENY',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'Cross-Origin-Opener-Policy': 'same-origin',
+};
+
+function harden(response) {
+  const hardened = new Response(response.body, response);
+  for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
+    hardened.headers.set(name, value);
+  }
+  return hardened;
+}
+
+async function handleRequest(request, env) {
     const url = new URL(request.url);
 
     if (request.method === 'POST' && url.pathname === '/api/login') return handleLogin(request, env);
@@ -73,5 +90,10 @@ export default {
     }
 
     return env.ASSETS.fetch(request);
+}
+
+export default {
+  async fetch(request, env) {
+    return harden(await handleRequest(request, env));
   },
 };

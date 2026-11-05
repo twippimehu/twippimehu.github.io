@@ -8,48 +8,75 @@
 <meta property="og:title" content="benkku.me">
 <meta property="og:description" content="Photography and projects by Benkku.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://benkku.me/">
+<meta property="og:image" content="https://benkku.me/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d0c0b">
+<link rel="canonical" href="https://benkku.me/">
+<link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>·</text></svg>">
 <link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
+
 <header class="masthead">
   <a class="wordmark" href="/">benkku.me</a>
-  <nav class="nav">
+  <nav class="nav" aria-label="Main">
     <a href="/photography/">Photography</a>
     <a href="/about/">About</a>
-    <a class="mystery" href="/.../" aria-label="...">. . .</a>
+    <a class="mystery" href="/.../" aria-label="Private area">. . .</a>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-media">
-    <img src="/photos/example-001.jpg" alt="" onerror="this.closest('.hero-media').style.background='linear-gradient(160deg,#1a1815,#0d0c0b)'">
-  </div>
-  <div class="hero-content">
-    <h1>BENKKU.ME</h1>
-    <p class="tagline">Photography <span>/</span> Projects <span>/</span> Tools</p>
+<main id="main">
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1 data-reveal>Photographs,<br>and a few other things.</h1>
+      <p class="lede" data-reveal>I'm Benkku. This is where the pictures go, along with whatever else is finished enough to show.</p>
+      <a class="hero-link" href="/photography/" data-reveal>See the photographs →</a>
+    </div>
+    <figure class="hero-figure" id="heroFigure"></figure>
   </div>
 </section>
 
-<section class="section" id="featured">
-  <div class="section-header">
-    <h2>Featured</h2>
-    <a class="view-all" href="/photography/">View photography →</a>
+<section class="section" id="recent">
+  <div class="section-header" data-reveal>
+    <h2>Recent</h2>
+    <a class="view-all" href="/photography/">All photographs →</a>
   </div>
-  <div class="featured-grid" id="featuredGrid"></div>
+  <div class="recent-grid" id="recentGrid"></div>
+</section>
+
+<section class="section" id="work">
+  <div class="section-header" data-reveal>
+    <h2>Selected work</h2>
+  </div>
+  <p class="notice" data-reveal>More coming soon.</p>
 </section>
 
 <div class="mystery-strip">
-  <a href="/.../" aria-label="...">. . .</a>
+  <a href="/.../" aria-label="Private area">. . .</a>
 </div>
+
+</main>
 
 <footer>
   <span>© <span id="year"></span> benkku.me</span>
-  <span>Helsinki</span>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="/photography/">Photography</a>
+    <a href="/about/">About</a>
+  </nav>
 </footer>
 
 <script type="module" src="/assets/js/site/home.js"></script>
+<script type="module" src="/assets/js/site/reveal.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
 </html>
