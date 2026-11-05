@@ -3,5 +3,9 @@
   "private": true,
   "devDependencies": {
     "wrangler": "^4.0.0"
+  },
+  "scripts": {
+    "photos": "node scripts/photos.mjs",
+    "dev": "wrangler dev"
   }
 }
