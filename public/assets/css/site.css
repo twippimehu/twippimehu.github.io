@@ -351,6 +351,7 @@ main{flex:1 0 auto}
 @media (max-width:760px){.about-grid{grid-template-columns:1fr}}
 .about-portrait{aspect-ratio:4/5;background:var(--ink-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--paper-dim);font-size:13px}
 .about-copy{max-width:62ch;display:flex;flex-direction:column;gap:var(--s7)}
+.about-intro{display:flex;flex-direction:column;gap:14px}
 .about-block{display:flex;flex-direction:column;gap:6px}
 .about-lead{
   font-family:var(--serif);
@@ -384,14 +385,13 @@ main{flex:1 0 auto}
   display:flex;flex-direction:column;gap:8px;
   font-family:var(--mono);font-size:var(--fs-small);
   letter-spacing:0.02em;color:var(--fg-3);
-}
-.about-meta-flags{display:flex;align-items:center;gap:7px}
+}.about-meta-flags{display:flex;align-items:center;gap:7px}
 .flag{display:flex;align-items:center}
 .flag svg{
   display:block;height:13px;width:auto;border-radius:1px;
   box-shadow:0 0 0 1px rgba(255,255,255,0.16);
 }
-.about-meta-comma{color:var(--fg-2)}
+.about-meta-sep{color:var(--fg-3)}
 .about-meta-date{color:var(--fg-2)}
 
 .sr-only{
