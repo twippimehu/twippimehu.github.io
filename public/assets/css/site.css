@@ -359,7 +359,6 @@ main{flex:1 0 auto}
   color:var(--fg);text-wrap:balance;
 }
 .about-sub{font-size:var(--fs-body);line-height:1.6;color:var(--fg-2);max-width:52ch}
-.about-block--en{border-top:1px solid var(--line);padding-top:var(--s6)}
 .about-block--en .about-lead{
   font-family:var(--sans);font-size:var(--fs-h3);
   font-weight:400;line-height:1.45;letter-spacing:0;color:var(--fg-2);
@@ -377,6 +376,28 @@ main{flex:1 0 auto}
 .about-links a:hover, .about-links a:focus-visible{color:var(--fg)}
 .about-links a:hover .about-links-value, .about-links a:focus-visible .about-links-value{color:var(--accent)}
 .about-links-value{color:var(--fg-3);overflow-wrap:anywhere}
+
+/* flags and the date under the About copy — the flags are inline SVG rather
+   than emoji, because Windows browsers render flag emoji as bare country
+   letters. The comma is its own element so the two sit on the text baseline. */
+.about-meta{
+  display:flex;flex-direction:column;gap:8px;
+  font-family:var(--mono);font-size:var(--fs-small);
+  letter-spacing:0.02em;color:var(--fg-3);
+}
+.about-meta-flags{display:flex;align-items:center;gap:7px}
+.flag{display:flex;align-items:center}
+.flag svg{
+  display:block;height:13px;width:auto;border-radius:1px;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.16);
+}
+.about-meta-comma{color:var(--fg-2)}
+.about-meta-date{color:var(--fg-2)}
+
+.sr-only{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;
+  overflow:hidden;clip-path:inset(50%);white-space:nowrap;
+}
 
 /* ---- private-area teaser (subtle, homepage) ---- */
 .mystery-strip{
