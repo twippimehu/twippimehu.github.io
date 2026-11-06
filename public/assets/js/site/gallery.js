@@ -1,5 +1,5 @@
 import { loadPhotos, categories } from './photos-data.js';
-import { t, onLangChange } from './i18n.js';
+import { t, lang, onLangChange } from './i18n.js';
 
 const VIEW_KEY = 'view';
 const canAnimate = typeof document.startViewTransition === 'function';
@@ -37,9 +37,25 @@ function titleOf(p) { return p.title || ''; }
 // What sits under a photograph in the viewer: where and when it was taken, and
 // what it was taken with. Every part is optional, so a manifest with nothing but
 // filenames stays clean and gains detail as you fill it in.
+function placeOf(p) {
+  return lang() === 'en' ? (p.locationEn || p.location) : (p.location || p.locationEn);
+}
+
+// Under a tile: just where and when. The camera belongs in the viewer, where
+// there is room to read it.
+function placeMeta(p) {
+  const bits = [];
+  const place = placeOf(p);
+  if (place) bits.push(place);
+  if (p.date) bits.push(p.date);
+  else if (p.year) bits.push(String(p.year));
+  return bits.join(' · ');
+}
+
 function captionMeta(p) {
   const bits = [];
-  if (p.location) bits.push(p.location);
+  const place = placeOf(p);
+  if (place) bits.push(place);
   if (p.date) bits.push(p.date);
   else if (p.year) bits.push(String(p.year));
   const gear = [p.camera, p.focal ? `${p.focal}mm` : ''].filter(Boolean).join(' ');
@@ -106,7 +122,7 @@ function renderGrid() {
 
   els.masonry.innerHTML = visible.map((p, i) => {
     const dims = p.width && p.height ? ` width="${p.width}" height="${p.height}"` : '';
-    const meta = captionMeta(p);
+    const meta = placeMeta(p);
     return `<figure class="tile" id="${escapeHtml(p.id)}">
       <a class="tile-link" href="#${escapeHtml(p.id)}" data-index="${i}"
          aria-label="${escapeHtml(titleOf(p) ? `${t('openPrefix')} ${titleOf(p)}` : t('openPhoto'))}">

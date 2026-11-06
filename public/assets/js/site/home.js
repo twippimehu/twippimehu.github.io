@@ -1,12 +1,14 @@
 import { loadPhotos } from './photos-data.js';
-import { t, onLangChange } from './i18n.js';
+import { t, lang, onLangChange } from './i18n.js';
 
 const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]));
 
+// The place is stored once per language, so read the one that is showing.
 function captionFor(photo) {
-  const meta = [photo.location, photo.date].filter(Boolean).map(escapeHtml).join(' · ');
+  const place = lang() === 'en' ? (photo.locationEn || photo.location) : (photo.location || photo.locationEn);
+  const meta = [place, photo.date || photo.year].filter(Boolean).map(escapeHtml).join(' · ');
   const title = photo.title ? escapeHtml(photo.title) : '';
   if (!title && !meta) return '';
   return `<figcaption><span>${title}</span>${meta ? `<span>${meta}</span>` : ''}</figcaption>`;

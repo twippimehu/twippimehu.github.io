@@ -36,7 +36,7 @@ works without them, the images just settle a moment later.
 | `category` | adds a filter button; leave it out and the photo shows under "All" |
 | `featured` | `true` on one photo makes it the homepage hero |
 | `date` | free text, shown as metadata (`2025`, `August 2025`, …) |
-| `location` | free text, shown as metadata — type `Oslo` and the viewer says `Oslo · 2026 · Sony NEX-6` |
+| `location` | free text, shown as metadata — type `Oslo` and the viewer says `Oslo · 2026 · Sony NEX-6`. For a place that reads differently in each language write `{ "fi": "Trondheim, Norja", "en": "Trondheim, Norway" }` |
 | `width` / `height` | filled in by `npm run photos`; only stops layout shift |
 | `camera` | read by `npm run photos` from the file's EXIF (`Sony NEX-6`); edit it or delete the line freely |
 | `focal` | focal length in mm, read from EXIF when the file still carries it |

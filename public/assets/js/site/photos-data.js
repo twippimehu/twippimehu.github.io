@@ -22,6 +22,19 @@ let cache = null;
 
 const PHOTO_DIR = '/photos/';
 
+// A place can be written once as a plain string, or once per language:
+//   "location": "Trondheim, Norja"
+//   "location": { "fi": "Trondheim, Norja", "en": "Trondheim, Norway" }
+function locationFields(value) {
+  if (typeof value === 'string') return { location: value, locationEn: value };
+  if (value && typeof value === 'object') {
+    const fi = typeof value.fi === 'string' ? value.fi : '';
+    const en = typeof value.en === 'string' ? value.en : '';
+    return { location: fi || en, locationEn: en || fi };
+  }
+  return { location: '', locationEn: '' };
+}
+
 function normalize(entry, index) {
   if (!entry || typeof entry !== 'object') return null;
 
@@ -41,7 +54,7 @@ function normalize(entry, index) {
     description: entry.description || '',
     category: entry.category || '',
     date: entry.date || '',
-    location: entry.location || '',
+    ...locationFields(entry.location),
     featured: entry.featured === true,
     camera: entry.camera || '',
     focal: Number(entry.focal) || 0,
