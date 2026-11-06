@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi" data-lang="fi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>benkku.me</title>
-<meta name="description" content="Photography and projects by Benkku.">
+<script>
+/* apply the remembered language before the first paint, so the two
+   translations never flash on screen */
+(function(){try{var s=localStorage.getItem('lang');var l=(s==='en')?'en':'fi';var r=document.documentElement;r.setAttribute('lang',l);r.setAttribute('data-lang',l);}catch(e){}})();
+</script>
+<title data-fi="benkku.me — kuvia matkan varrelta" data-en="benkku.me — pictures from along the way">benkku.me — kuvia matkan varrelta</title>
+<meta name="description" content="kuvia matkan varrelta. benkun valokuvia ja myöhemmin muita projekteja.">
 <meta property="og:title" content="benkku.me">
-<meta property="og:description" content="Photography and projects by Benkku.">
+<meta property="og:description" content="kuvia matkan varrelta. benkun valokuvia ja myöhemmin muita projekteja.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://benkku.me/">
 <meta property="og:image" content="https://benkku.me/og.png">
@@ -22,14 +27,15 @@
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main"><span class="t" lang="fi">Siirry sisältöön</span><span class="t" lang="en">Skip to content</span></a>
 
 <header class="masthead">
   <a class="wordmark" href="/">benkku.me</a>
-  <nav class="nav" aria-label="Main">
-    <a href="/photography/">Photography</a>
-    <a href="/about/">About</a>
-    <a class="mystery" href="/.../" aria-label="Private area">. . .</a>
+  <nav class="nav" aria-label="Päävalikko" data-label-fi="Päävalikko" data-label-en="Main">
+    <button class="lang-toggle" type="button" data-lang-toggle aria-label="Vaihda englanniksi">EN</button>
+    <a href="/photography/"><span class="t" lang="fi">Valokuvat</span><span class="t" lang="en">Photography</span></a>
+    <a href="/about/"><span class="t" lang="fi">Minusta</span><span class="t" lang="en">About</span></a>
+    <a class="mystery" href="/.../" aria-label="Yksityinen alue" data-label-fi="Yksityinen alue" data-label-en="Private area">. . .</a>
   </nav>
 </header>
 
@@ -38,9 +44,9 @@
 <section class="hero" id="hero">
   <div class="hero-inner">
     <div class="hero-copy">
-      <h1 data-reveal>Photographs,<br>and a few other things.</h1>
-      <p class="lede" data-reveal lang="fi">moi :) mun valokuvia ja myöhemmin muita projekteja jos kiinnostaa</p>
-      <a class="hero-link" href="/photography/" data-reveal>See the photographs →</a>
+      <h1 data-reveal><span class="t" lang="fi">kuvia matkan<br>varrelta.</span><span class="t" lang="en">pictures from<br>along the way.</span></h1>
+      <p class="lede" data-reveal><span class="t" lang="fi">moi :) mun valokuvia ja myöhemmin muita projekteja jos kiinnostaa</span><span class="t" lang="en">hi :) my photos, and later some other projects if you're interested</span></p>
+      <a class="hero-link" href="/photography/" data-reveal><span class="t" lang="fi">Katso kuvat →</span><span class="t" lang="en">See the photographs →</span></a>
     </div>
     <figure class="hero-figure" id="heroFigure"></figure>
   </div>
@@ -48,33 +54,34 @@
 
 <section class="section" id="recent">
   <div class="section-header" data-reveal>
-    <h2>Recent</h2>
-    <a class="view-all" href="/photography/">All photographs →</a>
+    <h2><span class="t" lang="fi">Viimeisimmät</span><span class="t" lang="en">Recent</span></h2>
+    <a class="view-all" href="/photography/"><span class="t" lang="fi">Kaikki kuvat →</span><span class="t" lang="en">All photographs →</span></a>
   </div>
   <div class="recent-grid" id="recentGrid"></div>
 </section>
 
 <section class="section" id="work">
   <div class="section-header" data-reveal>
-    <h2>Selected work</h2>
+    <h2><span class="t" lang="fi">Valittuja töitä</span><span class="t" lang="en">Selected work</span></h2>
   </div>
-  <p class="notice" data-reveal>More coming soon.</p>
+  <p class="notice" data-reveal><span class="t" lang="fi">Lisää tulossa.</span><span class="t" lang="en">More coming soon.</span></p>
 </section>
 
 <div class="mystery-strip">
-  <a href="/.../" aria-label="Private area">. . .</a>
+  <a href="/.../" aria-label="Yksityinen alue" data-label-fi="Yksityinen alue" data-label-en="Private area">. . .</a>
 </div>
 
 </main>
 
 <footer>
   <span>© <span id="year"></span> benkku.me</span>
-  <nav class="foot-nav" aria-label="Footer">
-    <a href="/photography/">Photography</a>
-    <a href="/about/">About</a>
+  <nav class="foot-nav" aria-label="Alavalikko" data-label-fi="Alavalikko" data-label-en="Footer">
+    <a href="/photography/"><span class="t" lang="fi">Valokuvat</span><span class="t" lang="en">Photography</span></a>
+    <a href="/about/"><span class="t" lang="fi">Minusta</span><span class="t" lang="en">About</span></a>
   </nav>
 </footer>
 
+<script type="module" src="/assets/js/site/i18n.js"></script>
 <script type="module" src="/assets/js/site/home.js"></script>
 <script type="module" src="/assets/js/site/reveal.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear()</script>

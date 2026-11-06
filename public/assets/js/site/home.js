@@ -1,4 +1,5 @@
 import { loadPhotos } from './photos-data.js';
+import { t, onLangChange } from './i18n.js';
 
 const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -27,7 +28,7 @@ function renderRecent(photos) {
   const grid = document.getElementById('recentGrid');
   if (!grid) return;
   if (!photos.length) {
-    grid.innerHTML = '<p class="notice">Photographs coming soon.</p>';
+    grid.innerHTML = `<p class="notice">${escapeHtml(t('recentComingSoon'))}</p>`;
     return;
   }
   grid.innerHTML = photos.map((p) => {
@@ -41,16 +42,25 @@ function renderRecent(photos) {
   }).join('');
 }
 
+let loaded = null;
+
+function render() {
+  if (!loaded) return;
+  const heroPhoto = loaded.find((p) => p.featured && p.src) || loaded.find((p) => p.src) || null;
+  const rest = loaded.filter((p) => p !== heroPhoto).slice(0, 3);
+  renderHero(heroPhoto);
+  renderRecent(rest);
+}
+
 async function init() {
   try {
-    const photos = await loadPhotos();
-    const heroPhoto = photos.find((p) => p.featured && p.src) || photos.find((p) => p.src) || null;
-    const rest = photos.filter((p) => p !== heroPhoto).slice(0, 3);
-    renderHero(heroPhoto);
-    renderRecent(rest);
+    loaded = await loadPhotos();
+    render();
   } catch {
     renderRecent([]);
   }
 }
+
+onLangChange(render);
 
 init();

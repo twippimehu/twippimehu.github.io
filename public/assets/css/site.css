@@ -498,3 +498,25 @@ footer{
   animation-duration:.3s;
   animation-timing-function:cubic-bezier(.22,1,.36,1);
 }
+
+/* ---- language switch ----
+   Both translations live in the HTML, and CSS lays out only the one matching
+   <html data-lang>. Nothing is added or removed at runtime, so the two can
+   never drift apart. The inactive one is display:none, which also keeps it out
+   of the accessibility tree. */
+[data-lang="fi"] .t[lang="en"],
+[data-lang="en"] .t[lang="fi"]{display:none}
+
+.lang-toggle{
+  font-family:var(--mono);
+  font-size:var(--fs-meta);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--fg-3);
+  background:none;border:0;padding:0 0 3px;
+  border-bottom:1px solid transparent;
+  cursor:pointer;
+  transition:color .2s, border-color .2s;
+}
+.lang-toggle:hover, .lang-toggle:focus-visible{color:var(--accent);border-bottom-color:var(--accent)}
+.lang-toggle:focus-visible{outline:none}

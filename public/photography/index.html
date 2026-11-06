@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi" data-lang="fi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photography — benkku.me</title>
-<meta name="description" content="Photography portfolio.">
-<meta property="og:title" content="Photography — benkku.me">
-<meta property="og:description" content="Photography portfolio.">
+<script>
+/* apply the remembered language before the first paint, so the two
+   translations never flash on screen */
+(function(){try{var s=localStorage.getItem('lang');var l=(s==='en')?'en':'fi';var r=document.documentElement;r.setAttribute('lang',l);r.setAttribute('data-lang',l);}catch(e){}})();
+</script>
+<title data-fi="Valokuvat — benkku.me" data-en="Photography — benkku.me">Valokuvat — benkku.me</title>
+<meta name="description" content="kuvia matkan varrelta.">
+<meta property="og:title" content="Valokuvat — benkku.me">
+<meta property="og:description" content="kuvia matkan varrelta.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://benkku.me/photography/">
 <meta property="og:image" content="https://benkku.me/og.png">
@@ -21,14 +26,15 @@
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main"><span class="t" lang="fi">Siirry sisältöön</span><span class="t" lang="en">Skip to content</span></a>
 
 <header class="masthead">
   <a class="wordmark" href="/">benkku.me</a>
-  <nav class="nav" aria-label="Main">
-    <a href="/photography/" aria-current="page">Photography</a>
-    <a href="/about/">About</a>
-    <a class="mystery" href="/.../" aria-label="Private area">. . .</a>
+  <nav class="nav" aria-label="Päävalikko" data-label-fi="Päävalikko" data-label-en="Main">
+    <button class="lang-toggle" type="button" data-lang-toggle aria-label="Vaihda englanniksi">EN</button>
+    <a href="/photography/" aria-current="page"><span class="t" lang="fi">Valokuvat</span><span class="t" lang="en">Photography</span></a>
+    <a href="/about/"><span class="t" lang="fi">Minusta</span><span class="t" lang="en">About</span></a>
+    <a class="mystery" href="/.../" aria-label="Yksityinen alue" data-label-fi="Yksityinen alue" data-label-en="Private area">. . .</a>
   </nav>
 </header>
 
@@ -36,9 +42,9 @@
 
 <section class="section">
   <div class="page-head" data-reveal>
-    <h1>Photography</h1>
+    <h1><span class="t" lang="fi">Valokuvat</span><span class="t" lang="en">Photography</span></h1>
   </div>
-  <nav class="filters" id="categoryFilter" aria-label="Filter photographs"></nav>
+  <nav class="filters" id="categoryFilter" aria-label="Suodata kuvia" data-label-fi="Suodata kuvia" data-label-en="Filter photographs"></nav>
   <div class="masonry" id="masonry"></div>
 </section>
 
@@ -46,15 +52,15 @@
 
 <footer>
   <span>© <span id="year"></span> benkku.me</span>
-  <nav class="foot-nav" aria-label="Footer">
-    <a href="/photography/">Photography</a>
-    <a href="/about/">About</a>
+  <nav class="foot-nav" aria-label="Alavalikko" data-label-fi="Alavalikko" data-label-en="Footer">
+    <a href="/photography/"><span class="t" lang="fi">Valokuvat</span><span class="t" lang="en">Photography</span></a>
+    <a href="/about/"><span class="t" lang="fi">Minusta</span><span class="t" lang="en">About</span></a>
   </nav>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="lightbox-close" id="lbClose" aria-label="Close photo viewer">&times;</button>
-  <button class="lightbox-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Kuvien katselu" data-label-fi="Kuvien katselu" data-label-en="Photo viewer">
+  <button class="lightbox-close" id="lbClose" aria-label="Sulje kuvien katselu" data-label-fi="Sulje kuvien katselu" data-label-en="Close photo viewer">&times;</button>
+  <button class="lightbox-prev" id="lbPrev" aria-label="Edellinen kuva" data-label-fi="Edellinen kuva" data-label-en="Previous photo">&#8249;</button>
   <div class="lightbox-stage">
     <img id="lbImage" alt="">
     <div class="lightbox-bar">
@@ -62,9 +68,10 @@
       <span class="lightbox-count" id="lbCount"></span>
     </div>
   </div>
-  <button class="lightbox-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  <button class="lightbox-next" id="lbNext" aria-label="Seuraava kuva" data-label-fi="Seuraava kuva" data-label-en="Next photo">&#8250;</button>
 </div>
 
+<script type="module" src="/assets/js/site/i18n.js"></script>
 <script type="module" src="/assets/js/site/gallery.js"></script>
 <script type="module" src="/assets/js/site/reveal.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear()</script>

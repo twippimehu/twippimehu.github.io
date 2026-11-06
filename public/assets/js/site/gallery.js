@@ -1,4 +1,5 @@
 import { loadPhotos, categories } from './photos-data.js';
+import { t, onLangChange } from './i18n.js';
 
 let photos = [];
 let visible = [];
@@ -37,7 +38,7 @@ function renderFilters() {
   els.filter.innerHTML = cats.map((c) => `
     <button type="button" data-cat="${escapeHtml(c)}"
             class="${c === activeCategory ? 'is-active' : ''}"
-            aria-pressed="${c === activeCategory}">${escapeHtml(c)}<span class="count">${countFor(c)}</span></button>
+            aria-pressed="${c === activeCategory}">${escapeHtml(c === 'All' ? t('all') : c)}<span class="count">${countFor(c)}</span></button>
   `).join('');
 
   els.filter.querySelectorAll('button').forEach((btn) => {
@@ -54,8 +55,8 @@ function renderGrid() {
 
   if (!visible.length) {
     els.masonry.innerHTML = photos.length
-      ? '<p class="notice">No photographs in this category yet.</p>'
-      : '<p class="notice">Photographs coming soon.</p>';
+      ? `<p class="notice">${escapeHtml(t('noInCategory'))}</p>`
+      : `<p class="notice">${escapeHtml(t('comingSoon'))}</p>`;
     return;
   }
 
@@ -64,7 +65,7 @@ function renderGrid() {
     const meta = metaOf(p);
     return `<figure class="tile" id="${escapeHtml(p.id)}">
       <a class="tile-link" href="#${escapeHtml(p.id)}" data-index="${i}"
-         aria-label="Open ${escapeHtml(titleOf(p) || 'photograph')}">
+         aria-label="${escapeHtml(titleOf(p) ? `${t('openPrefix')} ${titleOf(p)}` : t('openPhoto'))}">
         <img src="${p.src}" alt="${escapeHtml(p.description || titleOf(p))}"
              ${dims} loading="${i < 4 ? 'eager' : 'lazy'}" decoding="async">
       </a>
@@ -162,7 +163,7 @@ async function init() {
   try {
     photos = await loadPhotos();
   } catch {
-    els.masonry.innerHTML = '<p class="notice">Photographs are unavailable right now.</p>';
+    els.masonry.innerHTML = `<p class="notice">${escapeHtml(t('unavailable'))}</p>`;
     return;
   }
   renderFilters();
@@ -174,5 +175,12 @@ async function init() {
     if (idx !== -1) openLightbox(idx);
   }
 }
+
+// the visible labels come from JavaScript, so a language change redraws them
+onLangChange(() => {
+  if (!photos.length) return;
+  renderFilters();
+  renderGrid();
+});
 
 init();

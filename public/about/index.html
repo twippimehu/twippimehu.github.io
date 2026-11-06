@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi" data-lang="fi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — benkku.me</title>
+<script>
+/* apply the remembered language before the first paint, so the two
+   translations never flash on screen */
+(function(){try{var s=localStorage.getItem('lang');var l=(s==='en')?'en':'fi';var r=document.documentElement;r.setAttribute('lang',l);r.setAttribute('data-lang',l);}catch(e){}})();
+</script>
+<title data-fi="Minusta — benkku.me" data-en="About — benkku.me">Minusta — benkku.me</title>
 <meta name="description" content="17-v lukiolainen Espoosta. Valokuvia ja muita projekteja tällä nettisivulla.">
-<meta property="og:title" content="About — benkku.me">
+<meta property="og:title" content="Minusta — benkku.me">
 <meta property="og:description" content="17-v lukiolainen Espoosta. Valokuvia ja muita projekteja tällä nettisivulla.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://benkku.me/about/">
@@ -21,14 +26,15 @@
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main"><span class="t" lang="fi">Siirry sisältöön</span><span class="t" lang="en">Skip to content</span></a>
 
 <header class="masthead">
   <a class="wordmark" href="/">benkku.me</a>
-  <nav class="nav" aria-label="Main">
-    <a href="/photography/">Photography</a>
-    <a href="/about/" aria-current="page">About</a>
-    <a class="mystery" href="/.../" aria-label="Private area">. . .</a>
+  <nav class="nav" aria-label="Päävalikko" data-label-fi="Päävalikko" data-label-en="Main">
+    <button class="lang-toggle" type="button" data-lang-toggle aria-label="Vaihda englanniksi">EN</button>
+    <a href="/photography/"><span class="t" lang="fi">Valokuvat</span><span class="t" lang="en">Photography</span></a>
+    <a href="/about/" aria-current="page"><span class="t" lang="fi">Minusta</span><span class="t" lang="en">About</span></a>
+    <a class="mystery" href="/.../" aria-label="Yksityinen alue" data-label-fi="Yksityinen alue" data-label-en="Private area">. . .</a>
   </nav>
 </header>
 
@@ -36,16 +42,16 @@
 
 <section class="section">
   <div class="page-head" data-reveal>
-    <h1>About</h1>
+    <h1><span class="t" lang="fi">Minusta</span><span class="t" lang="en">About</span></h1>
   </div>
 
   <div class="about-copy">
-    <div class="about-block" lang="fi" data-reveal>
+    <div class="about-block t" lang="fi" data-reveal>
       <p class="about-lead">17-v lukiolainen Espoosta :D</p>
       <p class="about-sub">Valokuvia ja muita projekteja tällä nettisivulla</p>
     </div>
 
-    <div class="about-block about-block--en" lang="en" data-reveal>
+    <div class="about-block about-block--en t" lang="en" data-reveal>
       <p class="about-lead">17-year old from Espoo, Finland</p>
       <p class="about-sub">Photography and other projects on this website</p>
     </div>
@@ -55,7 +61,7 @@
         <span>Instagram</span><span class="about-links-value">@ben_eggen</span>
       </a>
       <a href="mailto:benjamin.eggen@outlook.com">
-        <span>Email</span><span class="about-links-value">benjamin.eggen@outlook.com</span>
+        <span><span class="t" lang="fi">Sähköposti</span><span class="t" lang="en">Email</span></span><span class="about-links-value">benjamin.eggen@outlook.com</span>
       </a>
     </div>
   </div>
@@ -71,11 +77,12 @@
 
 <footer>
   <span>© <span id="year"></span> benkku.me</span>
-  <nav class="foot-nav" aria-label="Footer">
-    <a href="/photography/">Photography</a>
-    <a href="/about/">About</a>
+  <nav class="foot-nav" aria-label="Alavalikko" data-label-fi="Alavalikko" data-label-en="Footer">
+    <a href="/photography/"><span class="t" lang="fi">Valokuvat</span><span class="t" lang="en">Photography</span></a>
+    <a href="/about/"><span class="t" lang="fi">Minusta</span><span class="t" lang="en">About</span></a>
   </nav>
 </footer>
+<script type="module" src="/assets/js/site/i18n.js"></script>
 <script type="module" src="/assets/js/site/reveal.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
