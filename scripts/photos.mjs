@@ -59,11 +59,52 @@ function webpSize(buf) {
   return null;
 }
 
+// Orientation 5–8 means the browser rotates the picture a quarter turn, so the
+// displayed shape is the opposite of the stored one. Reading the tag lets the
+// manifest describe what people actually see, without re-encoding the file.
+function tiffOrientation(buf, start) {
+  const little = buf.toString('ascii', start, start + 2) === 'II';
+  const u16 = (at) => (little ? buf.readUInt16LE(at) : buf.readUInt16BE(at));
+  const u32 = (at) => (little ? buf.readUInt32LE(at) : buf.readUInt32BE(at));
+  if (start + 8 > buf.length || u16(start + 2) !== 42) return 1;
+  const ifd = start + u32(start + 4);
+  if (ifd + 2 > buf.length) return 1;
+  const count = u16(ifd);
+  for (let n = 0; n < count; n += 1) {
+    const entry = ifd + 2 + n * 12;
+    if (entry + 12 > buf.length) break;
+    if (u16(entry) === 0x0112) return u16(entry + 8);
+  }
+  return 1;
+}
+
+function jpegOrientation(buf) {
+  let i = 2;
+  while (i < buf.length - 3) {
+    if (buf[i] !== 0xff) { i += 1; continue; }
+    const marker = buf[i + 1];
+    if (marker === 0xd8 || marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) { i += 2; continue; }
+    if (marker === 0xd9 || marker === 0xda) break;
+    const length = buf.readUInt16BE(i + 2);
+    if (marker === 0xe1 && buf.toString('ascii', i + 4, i + 10) === 'Exif\0\0') {
+      return tiffOrientation(buf, i + 10);
+    }
+    i += 2 + length;
+  }
+  return 1;
+}
+
 async function dimensions(path, ext) {
   const buf = await readFile(path);
   if (ext === '.png') return pngSize(buf);
   if (ext === '.webp') return webpSize(buf);
-  return jpegSize(buf);
+  const size = jpegSize(buf);
+  if (!size) return null;
+  const orientation = jpegOrientation(buf);
+  if (orientation >= 5 && orientation <= 8) {
+    return { width: size.height, height: size.width };
+  }
+  return size;
 }
 
 async function main() {

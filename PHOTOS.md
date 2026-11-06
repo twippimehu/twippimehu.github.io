@@ -49,8 +49,10 @@ filters for the same thing.
   receives exactly the file you put in `public/photos/`.
 - The layout keeps the full frame: 9:16 portraits and 16:9 landscapes both
   display uncropped, side by side.
-- Rotate the photo in your editor before exporting rather than relying on EXIF
-  orientation, so the dimensions in the manifest match what the browser shows.
+- Orientation tags are read. A photo carrying an EXIF rotation (common from
+  phone exports and PowerToys) gets its manifest dimensions swapped to the shape
+  the browser actually displays, so tiles stay the right shape and the file
+  itself is never re-encoded.
 
 ## Removing a photo
 
