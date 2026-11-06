@@ -43,6 +43,7 @@
 <section class="section">
   <div class="page-head" data-reveal>
     <h1><span class="t" lang="fi">Valokuvat</span><span class="t" lang="en">Photography</span></h1>
+    <div class="view-switch" id="viewSwitch" role="group" aria-label="Näkymä" data-label-fi="Näkymä" data-label-en="View"></div>
   </div>
   <nav class="filters" id="categoryFilter" aria-label="Suodata kuvia" data-label-fi="Suodata kuvia" data-label-en="Filter photographs"></nav>
   <div class="masonry" id="masonry"></div>
@@ -61,14 +62,15 @@
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Kuvien katselu" data-label-fi="Kuvien katselu" data-label-en="Photo viewer">
   <button class="lightbox-close" id="lbClose" aria-label="Sulje kuvien katselu" data-label-fi="Sulje kuvien katselu" data-label-en="Close photo viewer">&times;</button>
   <button class="lightbox-prev" id="lbPrev" aria-label="Edellinen kuva" data-label-fi="Edellinen kuva" data-label-en="Previous photo">&#8249;</button>
+  <button class="lightbox-next" id="lbNext" aria-label="Seuraava kuva" data-label-fi="Seuraava kuva" data-label-en="Next photo">&#8250;</button>
   <div class="lightbox-stage">
     <img id="lbImage" alt="">
     <div class="lightbox-bar">
       <div class="lightbox-caption" id="lbCaption" aria-live="polite"></div>
       <span class="lightbox-count" id="lbCount"></span>
     </div>
+    <div class="filmstrip" id="lbFilmstrip" aria-label="Kaikki kuvat" data-label-fi="Kaikki kuvat" data-label-en="All photographs"></div>
   </div>
-  <button class="lightbox-next" id="lbNext" aria-label="Seuraava kuva" data-label-fi="Seuraava kuva" data-label-en="Next photo">&#8250;</button>
 </div>
 
 <script type="module" src="/assets/js/site/i18n.js"></script>

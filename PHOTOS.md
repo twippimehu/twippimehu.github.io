@@ -9,7 +9,9 @@ Two ways, both fine. Pick whichever suits your mood.
 3. Open `public/data/photos.json` and add a title and category to the new entry if you want them.
 
 The script reads each file's dimensions so the page can reserve space before the
-image loads (no jumping), and it keeps anything you have already written.
+image loads (no jumping), and it also picks up the camera and the year from the
+file's EXIF. Anything you have already written (title, category, location,
+featured) is kept untouched.
 
 ## The manual way
 
@@ -34,8 +36,11 @@ works without them, the images just settle a moment later.
 | `category` | adds a filter button; leave it out and the photo shows under "All" |
 | `featured` | `true` on one photo makes it the homepage hero |
 | `date` | free text, shown as metadata (`2025`, `August 2025`, …) |
-| `location` | free text, shown as metadata |
+| `location` | free text, shown as metadata — type `Oslo` and the viewer says `Oslo · 2026 · Sony NEX-6` |
 | `width` / `height` | filled in by `npm run photos`; only stops layout shift |
+| `camera` | read by `npm run photos` from the file's EXIF (`Sony NEX-6`); edit it or delete the line freely |
+| `focal` | focal length in mm, read from EXIF when the file still carries it |
+| `year` | taken year, read from EXIF when the file still carries it |
 
 Categories are not defined anywhere else — type any word and the filter row
 picks it up, with a count. Keep the spelling consistent or you will get two

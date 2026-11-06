@@ -18,6 +18,10 @@ const STRINGS = {
     comingSoon: 'Kuvia tulossa.',
     unavailable: 'Kuvat eivät ole juuri nyt saatavilla.',
     recentComingSoon: 'Kuvia tulossa.',
+    viewGrid: 'Ruudukko',
+    viewIndex: 'Indeksi',
+    viewLabel: 'Näkymä',
+    photoLabel: 'Kuva',
   },
   en: {
     all: 'All',
@@ -27,6 +31,10 @@ const STRINGS = {
     comingSoon: 'Photographs coming soon.',
     unavailable: 'Photographs are unavailable right now.',
     recentComingSoon: 'Photographs coming soon.',
+    viewGrid: 'Grid',
+    viewIndex: 'Index',
+    viewLabel: 'View',
+    photoLabel: 'Photograph',
   },
 };
 

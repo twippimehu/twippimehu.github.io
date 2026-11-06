@@ -541,3 +541,67 @@ footer{
 }
 .lang-toggle:hover, .lang-toggle:focus-visible{color:var(--accent);border-bottom-color:var(--accent)}
 .lang-toggle:focus-visible{outline:none}
+
+/* ---- gallery view switch ---- */
+.page-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s5);flex-wrap:wrap}
+.view-switch{display:flex;align-items:baseline;gap:var(--s4)}
+.view-switch:empty{display:none}
+.view-switch button{
+  background:none;border:0;border-bottom:1px solid transparent;
+  padding:0 0 4px;cursor:pointer;
+  font-family:var(--mono);font-size:var(--fs-meta);
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--fg-3);transition:color .2s, border-color .2s;
+}
+.view-switch button:hover{color:var(--fg)}
+.view-switch button:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+.view-switch button.is-active{color:var(--fg);border-bottom-color:var(--accent)}
+
+/* ---- index view: many narrow columns, no captions, still uncropped ----
+   A denser way to scan everything without turning photographs into squares. */
+.masonry.is-index{columns:5;column-gap:10px}
+@media (max-width:1100px){.masonry.is-index{columns:4}}
+@media (max-width:800px){.masonry.is-index{columns:3}}
+@media (max-width:520px){.masonry.is-index{columns:2}}
+.masonry.is-index .tile{margin:0 0 10px}
+.masonry.is-index figcaption{display:none}
+
+/* ---- lightbox: caption detail + filmstrip ---- */
+.lightbox-stage{max-width:min(96vw,1500px)}
+.lightbox img{max-height:66vh}
+.lightbox-meta{
+  display:block;margin-top:6px;
+  font-family:var(--mono);font-size:var(--fs-meta);
+  letter-spacing:0.04em;color:var(--fg-3);
+}
+.filmstrip{
+  display:flex;gap:6px;width:100%;margin-top:var(--s4);
+  overflow-x:auto;overscroll-behavior-x:contain;
+  padding-bottom:2px;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.filmstrip::-webkit-scrollbar{display:none}
+.filmstrip:empty{display:none}
+.filmstrip button{
+  flex:0 0 auto;padding:0;border:0;background:none;cursor:pointer;
+  line-height:0;opacity:.4;
+  transition:opacity .2s, box-shadow .2s;
+}
+.filmstrip button:hover{opacity:.75}
+.filmstrip button:focus-visible{opacity:1;outline:1px solid var(--accent);outline-offset:2px}
+.filmstrip button.is-active{opacity:1;box-shadow:0 0 0 1px var(--accent)}
+.filmstrip img{height:54px;width:auto;display:block}
+@media (max-width:700px){
+  .lightbox img{max-height:56vh}
+  .filmstrip img{height:40px}
+  .lightbox-bar{gap:var(--s4)}
+}
+
+/* ---- thumbnail → photograph, where the browser can animate it ---- */
+@media (prefers-reduced-motion: no-preference){
+  ::view-transition-old(photo),
+  ::view-transition-new(photo){
+    animation-duration:.34s;
+    animation-timing-function:cubic-bezier(.22,1,.36,1);
+  }
+}

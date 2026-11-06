@@ -10,6 +10,9 @@
 //   featured  true → used as the homepage hero
 //   date      free text, e.g. "2025"
 //   location  free text
+//   camera    filled in by `npm run photos` from the file's EXIF (editable)
+//   focal     focal length in mm, also read from EXIF
+//   year      taken year, read from EXIF
 //   width     image width in pixels   (never type this by hand:
 //   height    image height in pixels   `npm run photos` fills it in)
 //
@@ -40,6 +43,9 @@ function normalize(entry, index) {
     date: entry.date || '',
     location: entry.location || '',
     featured: entry.featured === true,
+    camera: entry.camera || '',
+    focal: Number(entry.focal) || 0,
+    year: entry.year || '',
     width: Number(entry.width) || 0,
     height: Number(entry.height) || 0,
   };
